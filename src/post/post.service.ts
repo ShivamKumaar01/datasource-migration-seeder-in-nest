@@ -52,4 +52,23 @@ export class PostService {
     }
   }
 
+  async getPostsByQueryAndParams(page: number, limit: number, userid?: number) {
+    const skip = (page - 1) * limit;
+    const whereClause = userid
+      ? { user: { id: userid } }
+      : {}
+    const [posts, total] = await this.postRepository.findAndCount({
+      where: whereClause,
+      skip,
+      take: limit,
+      order: { id: 'ASC' }
+    })
+    return {
+      data: posts,
+      total,
+      currentPage: page,
+      totalPages: Math.ceil(total / limit)
+    }
+  }
+
 }

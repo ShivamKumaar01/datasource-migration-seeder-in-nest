@@ -13,8 +13,4 @@ export class CreatePostDto {
     @IsInt()
     userid:number
 
-    
-
-
-
 }

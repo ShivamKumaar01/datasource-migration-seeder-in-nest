@@ -15,7 +15,7 @@ export default class UserSeeder implements Seeder {
         username: faker.internet.username(),
         email: faker.internet.email(),
         age: faker.number.int({ min: 18, max: 60 }),
-        password: 'abcdef', 
+        password: 'abcdef',
         gender: faker.helpers.arrayElement(['m', 'f', 'u']),
       }),
     );

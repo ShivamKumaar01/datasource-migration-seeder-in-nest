@@ -3,13 +3,13 @@ import { IsString } from "class-validator";
 export class CreateGroupDto {
 
     @IsString()
-    title:string
+    title: string
 
     @IsString()
-    description:string
+    description: string
 
     @IsString()
-    admin:string
+    admin: string
 
     userIds?: number[];
 }
