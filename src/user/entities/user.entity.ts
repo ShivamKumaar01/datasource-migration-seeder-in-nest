@@ -11,14 +11,14 @@ export class User {
   @Column({ type: 'varchar', length: 30 })
   name: string;
 
-  @Column({ type: 'varchar', length: 15 })
+  @Column({ type: 'varchar', length: 150,nullable: true  })
   username: string;
 
   // @Column({ type: 'varchar', length: 15 ,nullable:true})
   // interest: string;
 
 
-  @Column({ type: 'varchar', length: 40 })
+  @Column({ type: 'varchar', length: 100 })
   email: string;
 
   @Column({ type: 'int' })

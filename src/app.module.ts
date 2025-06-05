@@ -10,7 +10,9 @@ import { Group } from './group/entities/group.entity';
 import { Post } from './post/entities/post.entity';
 import { ProductModule } from './product/product.module';
 import { Product } from './product/entities/product.entity';
-import { OrmModule } from './config/typeorm.config';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { AppDataSource } from './database/data-source';
+// import { OrmModule } from './config/typeorm.config';
 // import dataSource from 'data-source';
 
 
@@ -29,13 +31,20 @@ import { OrmModule } from './config/typeorm.config';
   //     database: 'crud-revision',
   //     synchronize: true,//Indicates if database schema should be auto created on every application launch.
   //     logging: true,
-  //     migrations: ['src/database/migrations/*-migration.ts'],
-  //     migrationsRun: false,
+  //     // migrations: ['src/database/migrations/*-migration.ts'],
+  //     // migrationsRun: false,
 
   //     // migrations:[] //it shows query in console
   //   }
   // ), UserModule, PostModule, GroupModule, ProductModule],
-  imports:[OrmModule],
+  // imports:[OrmModule],
+    imports: [
+    TypeOrmModule.forRoot(AppDataSource.options), 
+    UserModule,
+    PostModule,
+    GroupModule,
+    ProductModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
